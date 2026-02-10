@@ -285,7 +285,7 @@ export default function App() {
               <TouchableOpacity 
                 activeOpacity={0.8}
                 onPress={() => vibeCount > 0 && setShowHistory(true)}
-                style={{ flex: 1 }}
+                style={styles.statCardWrapper}
               >
                 <LinearGradient
                   colors={['#1e1e3f', '#252550']}
@@ -296,33 +296,34 @@ export default function App() {
                   </View>
                   <Text style={styles.statNumber}>{vibeCount}</Text>
                   <Text style={styles.statLabel}>Vibes Logged</Text>
-                  {vibeCount > 0 && (
-                    <Text style={styles.tapHint}>Tap to view →</Text>
-                  )}
                 </LinearGradient>
               </TouchableOpacity>
               
-              <LinearGradient
-                colors={['#1e1e3f', '#252550']}
-                style={styles.statCard}
-              >
-                <View style={styles.statIconBg}>
-                  <Text style={styles.statIcon}>🔥</Text>
-                </View>
-                <Text style={styles.statNumber}>{vibeCount > 0 ? 1 : 0}</Text>
-                <Text style={styles.statLabel}>Day Streak</Text>
-              </LinearGradient>
+              <View style={styles.statCardWrapper}>
+                <LinearGradient
+                  colors={['#1e1e3f', '#252550']}
+                  style={styles.statCard}
+                >
+                  <View style={styles.statIconBg}>
+                    <Text style={styles.statIcon}>🔥</Text>
+                  </View>
+                  <Text style={styles.statNumber}>{vibeCount > 0 ? 1 : 0}</Text>
+                  <Text style={styles.statLabel}>Day Streak</Text>
+                </LinearGradient>
+              </View>
               
-              <LinearGradient
-                colors={['#1e1e3f', '#252550']}
-                style={styles.statCard}
-              >
-                <View style={styles.statIconBg}>
-                  <Text style={styles.statIcon}>⭐</Text>
-                </View>
-                <Text style={styles.statNumber}>{vibeCount > 0 ? 'A+' : '-'}</Text>
-                <Text style={styles.statLabel}>Vibe Score</Text>
-              </LinearGradient>
+              <View style={styles.statCardWrapper}>
+                <LinearGradient
+                  colors={['#1e1e3f', '#252550']}
+                  style={styles.statCard}
+                >
+                  <View style={styles.statIconBg}>
+                    <Text style={styles.statIcon}>⭐</Text>
+                  </View>
+                  <Text style={styles.statNumber}>{vibeCount > 0 ? 'A+' : '-'}</Text>
+                  <Text style={styles.statLabel}>Vibe Score</Text>
+                </LinearGradient>
+              </View>
             </View>
           </View>
 
@@ -666,8 +667,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
   },
-  statCard: {
+  statCardWrapper: {
     flex: 1,
+  },
+  statCard: {
     borderRadius: 18,
     padding: 16,
     alignItems: 'center',
