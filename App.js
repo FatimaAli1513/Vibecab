@@ -835,7 +835,7 @@ const styles = StyleSheet.create({
   },
   modalFooter: {
     paddingHorizontal: 20,
-    paddingBottom: 35,
+    paddingBottom: 50,
     paddingTop: 10,
   },
   closeButton: {
